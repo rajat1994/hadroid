@@ -6,6 +6,8 @@ from hadroid.modules.base import echo, ping, selfdestruct
 from hadroid.modules.coffee import COFFEE_USAGE, coffee
 from hadroid.modules.cron import CRON_USAGE, cron
 from hadroid.modules.menu import MENU_USAGE, menu
+#from hadroid.client import StdoutClient, GitterClient, StreamClient, CronClient
+from hadroid.client import GitterClient, CronClient
 
 Module = namedtuple('Module', ['names', 'main', 'usage'])
 
@@ -34,6 +36,11 @@ MODULES = (
     Module(('ping', ), ping, None),
     Module(('selfdestruct', ), selfdestruct, None),
 )
+
+CLIENTS = {
+    'gitter': GitterClient,
+    'cron': CronClient,
+}
 
 GITTER_PERSONAL_ACCESS_TOKEN = 'YOUR_GITTER_PERSONAL_ACCESS_TOKEN'
 
